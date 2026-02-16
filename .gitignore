@@ -1,0 +1,23 @@
+# Model files (too large for git)
+saves/
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Python
+__pycache__/
+*.py[cod]
+.env
+venv/
+
+# Logs
+*.log
+training_*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large data files
+data/train/*.json
