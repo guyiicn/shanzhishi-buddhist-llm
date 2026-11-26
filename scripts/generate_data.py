@@ -24,9 +24,11 @@ QDRANT_PORT = 6333
 COLLECTION_NAME = "cbeta"
 OLLAMA_URL = "http://localhost:11434"
 EMBEDDING_MODEL = "bge-m3:latest"
-DASHSCOPE_API_KEY = "sk-8cdb59cb607348ff9ef65478d24d635b"
+DASHSCOPE_API_KEY = os.environ.get("DASHSCOPE_API_KEY", "")  # 从环境变量读取，勿在代码中写死 key
 DASHSCOPE_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 LLM_MODEL = "qwen-plus"
+if not DASHSCOPE_API_KEY:
+    sys.exit("请先设置环境变量 DASHSCOPE_API_KEY")
 
 OUTPUT_DIR = Path(os.path.expanduser("~/code/buddhist-72b-distill/v4_training/data/v4.1"))
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
